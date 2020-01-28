@@ -1,6 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = (env, options) => {
@@ -9,7 +9,7 @@ module.exports = (env, options) => {
       app: ['./src/app.js']
     },
     output: {
-      filename: '[name].bundle.js',
+      filename: '[name].js',
       path: path.resolve(__dirname, 'dist')
     },
     optimization: {
@@ -31,7 +31,7 @@ module.exports = (env, options) => {
       new HtmlWebpackPlugin({
         title: 'Development',
         template: path.join(__dirname, './src/index.html'),
-        inject: false,
+        inject: true,
         filename: path.join(__dirname, './dist/index.html'),
         showErrors: true
       })
