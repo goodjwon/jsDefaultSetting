@@ -6,13 +6,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = (env, options) => {
   const config = {
     entry: {
-      app: ['./src/app.js']
+      app: ['./src/script/app.js']
     },
     output: {
-      filename: '[name].js',
+      filename: './script/[name].js',
       path: path.resolve(__dirname, 'dist')
     },
-    optimization: {
+    optimization: { //node_modules 별도 패키징.
       splitChunks: {
         cacheGroups: {
           commons: {
@@ -30,9 +30,8 @@ module.exports = (env, options) => {
       new webpack.HotModuleReplacementPlugin(),
       new HtmlWebpackPlugin({
         title: 'Development',
-        template: path.join(__dirname, './src/index.html'),
-        inject: true,
-        filename: path.join(__dirname, './dist/index.html'),
+        template: './src/public/index.html',
+        filename: './index.html',
         showErrors: true
       })
     ];
