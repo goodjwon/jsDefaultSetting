@@ -30,6 +30,9 @@ module.exports = (env, options) => {
       new webpack.HotModuleReplacementPlugin(),
       new HtmlWebpackPlugin({
         title: 'Development',
+        template: path.join(__dirname, './src/index.html'),
+        inject: false,
+        filename: path.join(__dirname, './dist/index.html'),
         showErrors: true
       })
     ];
