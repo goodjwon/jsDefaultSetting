@@ -41,6 +41,7 @@ module.exports = (env, options) => {
     config.devServer = {
       hot: true,
       host: '127.0.0.1',
+      port: '8081',
       contentBase: path.resolve(__dirname, 'dist'),
       stats: {
         color: true
